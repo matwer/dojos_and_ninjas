@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boostrap: CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main p-3 mb-2 bg-light">
+            <!-- create a  row -->
+            <div class="row">
+                <div class="row">
+                    <!-- Create the left column -->
+                    <div class="col-xs-8 col-sm-6">
+                        <form action="/dojo/create" method="POST">
+                            <h2>
+                                New Dojo
+                            </h2>
+                            <div>
+                                <label class="col-sm-2 col-form-label">
+                                    Name:
+                                </label>
+                                <input type="text" name="name" id="">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success mt-2">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Create the right column -->
+                    <div class="col-xs-4 col-sm-6">
+                        <h2>
+                            All Dojos
+                        </h2>
+                        <div class="list-group">
+                            {% for dojo in all_dojos %}
+                                <a href="/dojos/{{ dojo.id }}" class="list-group-item" name=>{{ dojo.name }}</a>                            </a>
+                            {% endfor %}
+                        </div>
+                        <div class="mt-2">
+                            <a href="/ninjas/new" >Add ninja</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap: JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
